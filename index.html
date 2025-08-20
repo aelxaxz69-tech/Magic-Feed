@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Feed</title>
+    <meta name="description" content="Descubre contenido mágico en videos, juegos, apps y música">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Pacifico&display=swap">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        purple: {
+                            light: '#a78bfa',
+                            dark: '#7c3aed'
+                        },
+                        blue: {
+                            neon: '#3b82f6',
+                            dark: '#1e40af'
+                        }
+                    },
+                    fontFamily: {
+                        'magic': ['"Pacifico"', 'cursive'],
+                        'sans': ['Montserrat', 'sans-serif']
+                    },
+                    animation: {
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'float': 'float 3s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { 'text-shadow': '0 0 5px #a78bfa, 0 0 10px #7c3aed' },
+                            '100%': { 'text-shadow': '0 0 10px #a78bfa, 0 0 20px #7c3aed, 0 0 30px #3b82f6' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .card-gradient {
+            background: linear-gradient(135deg, rgba(28, 25, 48, 0.8) 0%, rgba(30, 64, 175, 0.5) 100%);
+        }
+        .neon-text {
+            text-shadow: 0 0 5px #a78bfa, 0 0 10px #7c3aed;
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-200 font-sans min-h-screen">
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-full md:w-64 bg-gray-900 p-4 border-r border-purple-900">
+            <h1 class="text-2xl font-magic mb-8 text-center neon-text animate-glow">Magic Feed</h1>
+            
+            <nav class="space-y-2">
+                <a href="#" class="block p-3 rounded-lg hover:bg-purple-900/30 transition-all duration-300 group">
+                    <span class="flex items-center">
+                        <span class="mr-2 text-purple-400 group-hover:text-purple-200 transition-colors">✦</span>
+                        <span class="group-hover:neon-text">Inicio</span>
+                    </span>
+                </a>
+                <a href="#" class="block p-3 rounded-lg hover:bg-purple-900/30 transition-all duration-300 group">
+                    <span class="flex items-center">
+                        <span class="mr-2 text-blue-400 group-hover:text-blue-200 transition-colors">▶</span>
+                        <span class="group-hover:neon-text">Videos</span>
+                    </span>
+                </a>
+                <a href="#" class="block p-3 rounded-lg hover:bg-purple-900/30 transition-all duration-300 group">
+                    <span class="flex items-center">
+                        <span class="mr-2 text-purple-400 group-hover:text-purple-200 transition-colors">🎮</span>
+                        <span class="group-hover:neon-text">Juegos</span>
+                    </span>
+                </a>
+                <a href="#" class="block p-3 rounded-lg hover:bg-purple-900/30 transition-all duration-300 group">
+                    <span class="flex items-center">
+                        <span class="mr-2 text-blue-400 group-hover:text-blue-200 transition-colors">📱</span>
+                        <span class="group-hover:neon-text">Apps</span>
+                    </span>
+                </a>
+                <a href="#" class="block p-3 rounded-lg hover:bg-purple-900/30 transition-all duration-300 group">
+                    <span class="flex items-center">
+                        <span class="mr-2 text-purple-400 group-hover:text-purple-200 transition-colors">🎵</span>
+                        <span class="group-hover:neon-text">Música</span>
+                    </span>
+                </a>
+                <a href="#" class="block p-3 rounded-lg hover:bg-purple-900/30 transition-all duration-300 group">
+                    <span class="flex items-center">
+                        <span class="mr-2 text-blue-400 group-hover:text-blue-200 transition-colors">🔥</span>
+                        <span class="group-hover:neon-text">Tendencias</span>
+                    </span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            <!-- Search Bar -->
+            <div class="mb-8">
+                <div class="relative max-w-2xl mx-auto">
+                    <input 
+                        type="text" 
+                        placeholder="Buscar contenido mágico..." 
+                        class="w-full bg-gray-800/70 border border-purple-900/50 rounded-full py-3 px-6 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    >
+                    <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-400 hover:text-purple-200 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content Feed -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Video Card -->
+                <div class="card-gradient rounded-xl p-5 border border-purple-900/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 group animate-float">
+                    <div class="mb-4 relative overflow-hidden rounded-lg">
+                        <img 
+                            src="https://picsum.photos/600/400?random=1" 
+                            alt="Video destacado" 
+                            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent"></div>
+                        <span class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-sm">12:34</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 group-hover:text-purple-300 transition-colors">Tutorial de hechizos avanzados</h3>
+                    <p class="text-gray-400 mb-3">Aprende los secretos de la magia arcana con este increíble tutorial.</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span>Mago Moderno</span>
+                        <span>2.4K vistas</span>
+                    </div>
+                </div>
+
+                <!-- Game Card -->
+                <div class="card-gradient rounded-xl p-5 border border-blue-900/30 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 group animate-float">
+                    <div class="mb-4 relative overflow-hidden rounded-lg">
+                        <img 
+                            src="https://picsum.photos/600/400?random=2" 
+                            alt="Juego destacado" 
+                            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 group-hover:text-blue-300 transition-colors">Spellbound Kingdom</h3>
+                    <p class="text-gray-400 mb-3">Explora un mundo de fantasía lleno de criaturas mágicas y desafíos épicos.</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span>RPG • Fantasía</span>
+                        <span>4.8 ★</span>
+                    </div>
+                </div>
+
+                <!-- App Card -->
+                <div class="card-gradient rounded-xl p-5 border border-purple-900/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 group animate-float">
+                    <div class="mb-4 relative overflow-hidden rounded-lg">
+                        <img 
+                            src="https://picsum.photos/600/400?random=3" 
+                            alt="App destacada" 
+                            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 group-hover:text-purple-300 transition-colors">Grimorio Digital</h3>
+                    <p class="text-gray-400 mb-3">Organiza tus hechizos, pociones y notas mágicas en esta increíble aplicación.</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span>Productividad</span>
+                        <span>Descargas: 50K+</span>
+                    </div>
+                </div>
+
+                <!-- Music Card -->
+                <div class="card-gradient rounded-xl p-5 border border-blue-900/30 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 group animate-float">
+                    <div class="mb-4 relative overflow-hidden rounded-lg">
+                        <img 
+                            src="https://picsum.photos/600/400?random=4" 
+                            alt="Música destacada" 
+                            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 group-hover:text-blue-300 transition-colors">Encantamiento Nocturno</h3>
+                    <p class="text-gray-400 mb-3">La última colección de música mística para tus sesiones de hechicería.</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span>Música Ambiental</span>
+                        <span>1.2M streams</span>
+                    </div>
+                </div>
+
+                <!-- Trend Card -->
+                <div class="card-gradient rounded-xl p-5 border border-purple-900/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 group animate-float">
+                    <div class="mb-4 relative overflow-hidden rounded-lg">
+                        <img 
+                            src="https://picsum.photos/600/400?random=5" 
+                            alt="Tendencia destacada" 
+                            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 group-hover:text-purple-300 transition-colors">El auge de la magia moderna</h3>
+                    <p class="text-gray-400 mb-3">Cómo la nueva generación está reinventando las artes oscuras.</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span>Tendencia • Cultura</span>
+                        <span>10K compartidos</span>
+                    </div>
+                </div>
+
+                <!-- Video Card 2 -->
+                <div class="card-gradient rounded-xl p-5 border border-blue-900/30 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 group animate-float">
+                    <div class="mb-4 relative overflow-hidden rounded-lg">
+                        <img 
+                            src="https://picsum.photos/600/400?random=6" 
+                            alt="Video tutorial" 
+                            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent"></div>
+                        <span class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-sm">8:15</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 group-hover:text-blue-300 transition-colors">Pociones para principiantes</h3>
+                    <p class="text-gray-400 mb-3">Domina los fundamentos de la alquimia con esta guía paso a paso.</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span>Alquimista Digital</span>
+                        <span>5.7K vistas</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Prevent default anchor behavior
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Here you would normally handle the navigation
+                console.log('Navigating to:', this.getAttribute('href'));
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('input[type="text"]');
+        const searchButton = document.querySelector('button');
+        
+        searchButton.addEventListener('click', () => {
+            console.log('Searching for:', searchInput.value);
+            // Implement search functionality here
+        });
+
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                console.log('Searching for:', searchInput.value);
+                // Implement search functionality here
+            }
+        });
+    </script>
+</body>
+</html>
